@@ -13,10 +13,12 @@ public class Attack {
           this.minimumDamage = minimumDamage;
           this.maximumDamage = maximumDamage;
      }
+
      //O(1)
      public int getAttackPointCost() {
           return this.attackPointCost;
      }
+
      //O(1)
      public int damageForOpponent(){
           int damageForOpponent;
@@ -28,6 +30,7 @@ public class Attack {
           }
           return damageForOpponent;
      }
+
      //O(1)
      public String toString() {
           return
@@ -35,6 +38,7 @@ public class Attack {
                   " [BP: " + attackPointCost + "]" +
                   " ,"+printAttackInformation();
      }
+
      //O(1)
      private String printAttackInformation(){
           String attackInformatio="[Damage: " + minimumDamage +
