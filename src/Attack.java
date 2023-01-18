@@ -28,7 +28,7 @@ public class Attack {
           }
           return damageForOpponent;
      }
-
+     //O(1)
      public String toString() {
           return
                   name +

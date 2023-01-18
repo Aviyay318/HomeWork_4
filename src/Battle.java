@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Battle {
 
+    //O(n)
     public void startGame(){
         Random random = new Random();
         Pokémon [] trainers = new Pokémon[Constants.NUMBER_OF_TRAINERS];
@@ -101,6 +102,8 @@ public class Battle {
           }
         }
     }
+
+    //O(1)
     private boolean attack(Pokémon [] trainers, int indexTrainers){
         Scanner scanner = new Scanner(System.in);
         boolean switchTurn = false;
@@ -134,13 +137,15 @@ public class Battle {
      return switchTurn;
     }
 
-
+    //O(n)
     private void printAttack(Pokémon pokémon){
         System.out.println("Your attacks are:");
      for (int i=0;i<pokémon.getAttacks().length;i++){
          System.out.println((i+1)+")"+pokémon.getAttacks()[i]);
      }
     }
+
+    //O(1)
     private void passTurn(Pokémon pokémon){
         Random random = new Random();
         int bonus = random.nextInt(Constants.BONUS_MIN,Constants.BONUS_MAX);
@@ -164,6 +169,8 @@ public class Battle {
             }
         }
     }
+
+    //O(1)
     private boolean evolve(Pokémon pokémon){
         boolean switchTurn = false;
         if (pokémon.isCanEvolve()){
@@ -174,10 +181,12 @@ public class Battle {
         }
        return switchTurn;
     }
+
+    //O(1)
     private void specialActionForFire(Pokémon [] trainers, int indexTrainer){
         int damageForOpponent = randomDamage(trainers[indexTrainer]);
         damageForOpponent+=randomDamage(trainers[indexTrainer]);
-        trainers[indexTrainer].makeBpZero();
+        trainers[indexTrainer].initializeBp();
         trainers[indexTrainer].makeHpHalf();
         if (indexTrainer==Constants.PLAYER_ONE){
             trainers[Constants.PLAYER_TWO].subtractHp(damageForOpponent);
@@ -186,17 +195,22 @@ public class Battle {
         }
 
     }
+
+    //O(1)
     private int randomDamage(Pokémon pokémon){
         Random random = new Random();
         int randomAttack = random.nextInt(pokémon.getAttacks().length);
         int damageForOpponent = pokémon.getAttacks()[randomAttack].damageForOpponent();
         return damageForOpponent;
     }
+
+    //O(1)
     private void specialActionForElectric(Pokémon  pokémon){
         pokémon.fullHp();
         pokémon.fullBp();
     }
 
+    //O(n)
     private int printMenuAndScan(Pokémon pokémon){
         int userInput = Constants.INITIALIZER;
         boolean isUserChoiceValid = true;
@@ -220,6 +234,8 @@ public class Battle {
 
         return userInput;
     }
+
+    //O(1)
     private String printExplanation(Pokémon pokémon){
         String printExplanation ="[Your HP and BP will be maximized, however! you can only use it once.]";
        if (pokémon.isFire()){
@@ -228,6 +244,7 @@ public class Battle {
        return printExplanation;
     }
 
+    //O(1)
     public Pokémon randomPokémon(){
         Random random = new Random();
         String [] pokémonNames = new String[]{"Charmander","Salandit","Moltres","Pikachu","Blitzle","Electabuzz"};
@@ -262,6 +279,7 @@ public class Battle {
       return randomPokémon;
     }
 
+    //O(1)
     private boolean isWinner(Pokémon pokémon){
         boolean isWinner=false;
        if (!pokémon.isAlive()) {

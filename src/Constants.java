@@ -51,6 +51,7 @@ public class Constants {
     public static final int DAMAGE_TAKEN_MAXIMUM = 11;
 
     public static final int INITIALIZER=0;
+    public static final int HALF_HP = 2;
     public static final Attack KICK = new Attack("Kick",0,2,2);
     public static final Attack SCRATCH  =new Attack("Scratch",15,25,30);
     public static final Attack LIVE_COAL = new Attack("Live Coal",10,0,25);

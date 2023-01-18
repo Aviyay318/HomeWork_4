@@ -46,7 +46,7 @@ public abstract class Pokémon {
 
     //O(1)
     public void makeHpHalf(){
-        this.hp /= 2;
+        this.hp /= Constants.HALF_HP;
     }
 
     //O(1)
