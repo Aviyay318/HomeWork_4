@@ -6,12 +6,14 @@ public class Attack {
      private int minimumDamage;
      private int maximumDamage;
 
+     //O(1)
      public Attack(String name, int attackPointCost, int minimumDamage, int maximumDamage) {
           this.name = name;
           this.attackPointCost = attackPointCost;
           this.minimumDamage = minimumDamage;
           this.maximumDamage = maximumDamage;
      }
+
      public int getAttackPointCost() {
           return this.attackPointCost;
      }

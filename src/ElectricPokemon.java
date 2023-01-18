@@ -12,7 +12,7 @@ public abstract class ElectricPokemon extends Pokémon{
 
     public boolean evolve() {return false;}
 
-    public void allRound() {
+    public void selfAllRound() {
         charge();
         checkHpPointForCharge();
     }
@@ -32,7 +32,7 @@ public abstract class ElectricPokemon extends Pokémon{
         this.charge+=5;
     }
     private void checkHpPointForCharge(){
-        if (!isHaveEnoughHp()){
+        if (!haveEnoughHp()){
            this.charge = Constants.INITIALIZER;
         }
     }

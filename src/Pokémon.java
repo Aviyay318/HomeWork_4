@@ -142,6 +142,25 @@ public abstract class Pokémon {
     public void printName(){
         System.out.print(this.name);
     }
+
+    public void printType(){
+        if(this.type == Constants.FIRE) {
+            System.out.print("Fire");
+        }
+        else {
+            System.out.print("Electric");
+        }
+    }
+
+    public void printEvolveCost(){
+        if (this.level==Constants.LEVEL_ONE){
+            System.out.print("[you need AT LEAST - 20 HP and 25 BP]");
+        }
+        else if (this.level==Constants.LEVEL_TWO){
+            System.out.print("[you need AT LEAST - 30 HP and 40 BP]");
+        }
+    }
+
     public void addAttack(Attack attack){
         Attack [] tempAttack = new Attack[getAttacks().length+1];
         for (int i=0;i<getAttacks().length;i++){
@@ -150,7 +169,6 @@ public abstract class Pokémon {
         tempAttack[tempAttack.length-1] = attack;
         setAttacks(tempAttack);
     }
-    //TODO
     public String toString() {
         return name +
                 "\nlevel=" + this.level +

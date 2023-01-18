@@ -21,7 +21,7 @@ public abstract class FirePokemon extends Pokémon{
         if (selfDamage.nextInt(Constants.WILL_TAKE_DAMAGE_MINIMUM,Constants.WILL_TAKE_DAMAGE_MAXIMUM)==Constants.PROBABILITY_OF_SELF_DAMAGE){
             int randomSelfDamage = selfDamage.nextInt(Constants.DAMAGE_TAKEN_MINIMUM,Constants.DAMAGE_TAKEN_MAXIMUM);
             subtractHp(randomSelfDamage);
-            System.out.println("Oh no! your attack has burnt you, you lost: " + randomSelfDamage + " HP");
+            System.out.println("Oh no! your attack has burnt you, you lost: " + randomSelfDamage + " HP\n");
         }
     }
 }

@@ -15,7 +15,8 @@ public class Pikachu extends ElectricPokemon{
                 addAttack(attack);
                 isEvolve = true;
             }else {
-                System.out.println("Pichu cannot evolve right now. \n you need AT LEAST - 20 HP and 25 BP");
+                System.out.println("Pichu cannot evolve right now. \n");
+                printEvolveCost();
             }
         }else if (getLevel()==Constants.LEVEL_TWO){
             if (canEvolve(Constants.HP_NECESSARY_FOR_LVL_THREE,Constants.BP_NECESSARY_FOR_LVL_THREE)){
@@ -28,7 +29,8 @@ public class Pikachu extends ElectricPokemon{
                 addAttack(attack);
                 isEvolve = true;
             }else {
-                System.out.println("Pikachu cannot evolve right now. \n you need AT LEAST - 30 HP and 40 BP");
+                System.out.println("Pikachu cannot evolve right now. \n");
+                printEvolveCost();
             }
 
         }

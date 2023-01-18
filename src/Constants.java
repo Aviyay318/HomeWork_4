@@ -45,6 +45,11 @@ public class Constants {
     public static final int ATTACK_POWER = 1;
     public static final int ATTACK_POWER_BONUS = 3;
 
+    public static final int WILL_TAKE_DAMAGE_MINIMUM = 1;
+    public static final int WILL_TAKE_DAMAGE_MAXIMUM = 5;
+    public static final int DAMAGE_TAKEN_MINIMUM = 3;
+    public static final int DAMAGE_TAKEN_MAXIMUM = 11;
+
     public static final int INITIALIZER=0;
     public static final Attack KICK = new Attack("Kick",0,2,2);
     public static final Attack SCRATCH  =new Attack("Scratch",15,25,30);
@@ -63,5 +68,5 @@ public class Constants {
     public static final Attack FIERY_TAIL = new Attack("fiery tail",40,30,50);
     public static final int NUMBER_OF_TRAINERS = 2;
     public static final int LEVEL_ONE = 1;
-    public static final int LEVEL_TWO =2;
+    public static final int LEVEL_TWO = 2;
 }

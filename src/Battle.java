@@ -14,24 +14,28 @@ public class Battle {
         for (int i = 0;i<trainers.length;i++){
             trainers[i] = randomPokémon();
         }
-        System.out.println("Welcome to Pokemon!" +
+        System.out.println("\n\nWelcome to Pokemon!" +
                 "\nThe rules are simple:\n" +
-                "1. WIN!");      //7 years old humor  #Ram
+                "1. WIN!\n");      //7 years old humor  #Ram
         System.out.print("Trainer #1: ");
                  trainers[Constants.PLAYER_ONE].printName();
-        System.out.print( " I CHOOSE YOU\n" +
+        System.out.print( " of type ");
+        trainers[Constants.PLAYER_ONE].printType();
+        System.out.print(" I CHOOSE YOU\n" +
                 "-----------VS-----------\n" +"Trainer #2: ");
                 trainers[Constants.PLAYER_TWO].printName();
+        System.out.print( " of type ");
+        trainers[Constants.PLAYER_TWO].printType();
          System.out.println( " I CHOOSE YOU\n\n");
         while (!isWinner){
-            System.out.println("Trainer #1: "+trainers[Constants.PLAYER_ONE]);
+            System.out.println("\nTrainer #1: "+trainers[Constants.PLAYER_ONE]);
             System.out.println("-----------VS-----------");
             System.out.println("Trainer #2: "+trainers[Constants.PLAYER_TWO]+"\n");
             switchTurn = false;
             if (indexTrainer==Constants.PLAYER_ONE){
-                System.out.println("It's Trainer #1's turn");
+                System.out.println("It's Trainer #1's turn\n" + "----------------------");
             }else {
-                System.out.println("it's Trainer #2's turn");
+                System.out.println("it's Trainer #2's turn\n" + "----------------------");
             }
             switch (printMenuAndScan(trainers[indexTrainer])){
                 case Constants.BATTLE -> switchTurn = attack(trainers,indexTrainer);
@@ -77,10 +81,10 @@ public class Battle {
               counterTurnForDamagePower++;
               int randomHp = random.nextInt(Constants.MIN_RANDOM_HP,Constants.MAX_RANDOM_HP);
               int randomBp = random.nextInt(Constants.MIN_RANDOM_BP,Constants.MAX_RANDOM_BP);
-              System.out.println("You gained " + randomHp + " HP and " + randomBp +" BP");
+              System.out.println("You gained " + randomHp + " HP and " + randomBp +" BP\n");
               trainers[indexTrainer].addHp(randomHp);
               trainers[indexTrainer].addBp(randomBp);
-              trainers[indexTrainer].allRound();
+              trainers[indexTrainer].selfAllRound();
               if (indexTrainer==Constants.PLAYER_ONE){
                   indexTrainer = Constants.PLAYER_TWO;
                       trainers[Constants.PLAYER_TWO].opponentAllRound();
@@ -89,8 +93,8 @@ public class Battle {
                       trainers[Constants.PLAYER_ONE].opponentAllRound();
               }
           }
-          if (counterTurnForDamagePower==2){
-              counterTurnForDamagePower=0;
+          if (counterTurnForDamagePower==Constants.RESET_POWER){
+              counterTurnForDamagePower=Constants.INITIALIZER ;
               if (trainers[indexTrainer].getAttackPower()==Constants.ATTACK_POWER_BONUS){
                   trainers[indexTrainer].setAttackPower(Constants.ATTACK_POWER);
               }
@@ -105,10 +109,10 @@ public class Battle {
         do {
             if (!isUserChoiceValid){
                 trainers[indexTrainers].printName();
-                System.out.println(".... " + userAttackChoice + " is NOT one of the options, try again.");
+                System.out.println(".... " + userAttackChoice + " is NOT one of the options, try again.\n");
             }
             printAttack(trainers[indexTrainers]);
-            System.out.println("Enter your desired attack: ");
+            System.out.println("Enter your desired attack: \n");
             userAttackChoice = scanner.nextInt();
             isUserChoiceValid = false;
         } while (userAttackChoice<1||userAttackChoice>trainers[indexTrainers].getAttacks().length);
@@ -125,7 +129,7 @@ public class Battle {
                 trainers[Constants.PLAYER_ONE].subtractHp(damageForOpponent);
             }
        }else {
-           System.out.println("You dont have enough BP, please choose something else.");
+           System.out.println("You dont have enough BP, please choose something else.\n");
        }
      return switchTurn;
     }
@@ -145,18 +149,18 @@ public class Battle {
                 bonus = random.nextInt(Constants.BONUS_HP_MIN,Constants.BONUS_HP_MAX);
                 pokémon.addHp(bonus);
                 pokémon.printName();
-                System.out.println(" got " + bonus + " HP");
+                System.out.println(" got " + bonus + " HP\n");
             }
             case Constants.BONUS_BP ->{
                 bonus = random.nextInt(Constants.BONUS_BP_MIN,Constants.BONUS_BP_MAX);
                 pokémon.addBp(bonus);
                 pokémon.printName();
-                System.out.println(" got " + bonus + " BP");
+                System.out.println(" got " + bonus + " BP\n");
             }
             case Constants.ATTACK_POWER_BONUS -> {
                 pokémon.setAttackPower(Constants.ATTACK_POWER_BONUS);
                 pokémon.printName();
-                System.out.println("'s attack power has multiplied by 3");
+                System.out.println("'s attack power has multiplied by 3\n");
             }
         }
     }
@@ -204,10 +208,12 @@ public class Battle {
                 pokémon.printName();
                 System.out.println(".... " + userInput + " is NOT one of the options, try again.");
             }
-            System.out.println("1: Fight" +
+            System.out.print("1: Fight" +
                     "\n2: Pass the turn to get a bonus" +
-                    "\n3: Evolve" +
-                    "\n4: Special Action");
+                    "\n3: Evolve ");
+            pokémon.printEvolveCost();
+            System.out.println("\n" +
+                    "4: Special Action "+ printExplanation(pokémon)+"\n");
             Scanner scanner = new Scanner(System.in);
             userInput = scanner.nextInt();
             isUserChoiceValid = false;
@@ -215,12 +221,12 @@ public class Battle {
 
         return userInput;
     }
-    private String printExsplation(Pokémon pokémon){ //TODO
-        String printExsplation ="[you get full hp and bp]";
+    private String printExplanation(Pokémon pokémon){
+        String printExplanation ="[Your HP and BP will be maximized, however! you can only use it once.]";
        if (pokémon.isFire()){
-           printExsplation= " [you get 2 attack and lose your all point attack and hp down in half]";
+           printExplanation= " [You attack twice with random attacks, but! that will drain your BP to 0 and your HP will cut in half.]";
        }
-       return printExsplation;
+       return printExplanation;
     }
 
     public Pokémon randomPokémon(){
