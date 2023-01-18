@@ -9,6 +9,7 @@ public abstract class Pokémon {
     private int attackPower;
     private boolean canEvolve;
     private Attack [] attacks;
+    private int counterOfTriplePower;
 
     //O(1)
     public Pokémon(String name, int level, int type,boolean canEvolve, int hp, int bp, int maxHp, int maxBp, Attack[] attacks) {
@@ -22,6 +23,17 @@ public abstract class Pokémon {
         this.maxBp = maxBp;
         this.attacks = attacks;
         this.attackPower = 1;
+        this.counterOfTriplePower = 0;
+    }
+
+    //O(1)
+    public int getCounterOfTriplePower() {
+        return counterOfTriplePower;
+    }
+    //O(1)
+
+    public void setCounterOfTriplePower(int counterOfTriplePower) {
+        this.counterOfTriplePower = counterOfTriplePower;
     }
 
     //O(1)

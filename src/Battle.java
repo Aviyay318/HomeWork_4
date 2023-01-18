@@ -79,7 +79,11 @@ public class Battle {
             }
 
           if (switchTurn){
-              counterTurnForDamagePower++;
+              if (trainers[indexTrainer].getAttackPower()==Constants.ATTACK_POWER_BONUS){
+                  counterTurnForDamagePower++;
+                  trainers[indexTrainer].setCounterOfTriplePower(counterTurnForDamagePower);
+              }
+
               int randomHp = random.nextInt(Constants.MIN_RANDOM_HP,Constants.MAX_RANDOM_HP);
               int randomBp = random.nextInt(Constants.MIN_RANDOM_BP,Constants.MAX_RANDOM_BP);
               System.out.println("You gained " + randomHp + " HP and " + randomBp +" BP\n");
@@ -96,6 +100,7 @@ public class Battle {
           }
           if (counterTurnForDamagePower==Constants.RESET_POWER){
               counterTurnForDamagePower=Constants.INITIALIZER ;
+              trainers[indexTrainer].setCounterOfTriplePower(Constants.INITIALIZER);
               if (trainers[indexTrainer].getAttackPower()==Constants.ATTACK_POWER_BONUS){
                   trainers[indexTrainer].setAttackPower(Constants.ATTACK_POWER);
               }
