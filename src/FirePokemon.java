@@ -6,16 +6,19 @@ public class FirePokemon extends Pokémon{
         super(name, level, type, canEvolve, hp, bp, maxHp, maxBp, attacks);
     }
 
-    public void evolve(){};
+    public boolean evolve(){return false;};
     public void allRound() {}
     public int typeSpeciality(Attack attack){
+        if (attack!=Constants.KICK){
+            selfDamage();
+        }
         int damageForOpponent = attack.damageForOpponent();
         return damageForOpponent;
     }
-    public void typeSpeciality() {
-        Random random=new Random();
-        if (random.nextInt(1,5)==Constants.PROBABILITY_OF_SELF_DAMAGE){ //TODO
-            int randomSelfDamage = random.nextInt(3,11); //TODO
+    public void selfDamage() {
+        Random selfDamage = new Random();
+        if (selfDamage.nextInt(Constants.WILL_TAKE_DAMAGE_MINIMUM,Constants.WILL_TAKE_DAMAGE_MAXIMUM)==Constants.PROBABILITY_OF_SELF_DAMAGE){
+            int randomSelfDamage = selfDamage.nextInt(Constants.DAMAGE_TAKEN_MINIMUM,Constants.DAMAGE_TAKEN_MAXIMUM);
             subtractHp(randomSelfDamage);
             System.out.println("Oh no! your attack has burnt you, you lost: " + randomSelfDamage + " HP");
         }

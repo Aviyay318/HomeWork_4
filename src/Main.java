@@ -3,4 +3,6 @@ public class Main {
         Battle battle = new Battle();
         battle.startGame();
     }
+    //TODO sibuchiut complexity
+
 }

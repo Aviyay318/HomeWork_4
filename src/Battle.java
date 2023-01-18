@@ -7,6 +7,7 @@ public class Battle {
         Random random = new Random();
         Pokémon [] trainers = new Pokémon[Constants.NUMBER_OF_TRAINERS];
         boolean specialActionElectric = true;
+        int counterTurnForDamagePower = 0;
         int indexTrainer = Constants.PLAYER_ONE;
         boolean switchTurn;
         boolean isWinner = false;
@@ -71,7 +72,9 @@ public class Battle {
                 System.out.println(" is the winner");
                 break;
             }
+
           if (switchTurn){
+              counterTurnForDamagePower++;
               int randomHp = random.nextInt(Constants.MIN_RANDOM_HP,Constants.MAX_RANDOM_HP);
               int randomBp = random.nextInt(Constants.MIN_RANDOM_BP,Constants.MAX_RANDOM_BP);
               System.out.println("You gained " + randomHp + " HP and " + randomBp +" BP");
@@ -83,6 +86,9 @@ public class Battle {
               }else {
                   indexTrainer = Constants.PLAYER_ONE;
               }
+          }
+          if (counterTurnForDamagePower==2){
+              counterTurnForDamagePower=0;
               if (trainers[indexTrainer].getAttackPower()==Constants.ATTACK_POWER_BONUS){
                   trainers[indexTrainer].setAttackPower(Constants.ATTACK_POWER);
               }//TODO
@@ -108,9 +114,6 @@ public class Battle {
         if (trainers[indexTrainers].canAttack(attackCost)){
             switchTurn = true;
             trainers[indexTrainers].subtractBp(attackCost);
-            if (trainers[indexTrainers].isFire()){
-                trainers[indexTrainers].typeSpeciality();
-            }
             Attack userChoiceAttack = trainers[indexTrainers].getAttacks()[userAttackChoice-1];
             int damageForOpponent = trainers[indexTrainers].typeSpeciality(userChoiceAttack);
             damageForOpponent*=trainers[indexTrainers].getAttackPower();
@@ -158,8 +161,7 @@ public class Battle {
     private boolean evolve(Pokémon pokémon){
         boolean switchTurn = false;
         if (pokémon.isCanEvolve()){
-            pokémon.evolve();
-            switchTurn = true; //TODO
+            switchTurn=pokémon.evolve();
         }else {
             pokémon.printName();
             System.out.println("can't evolve");
@@ -172,9 +174,9 @@ public class Battle {
         trainers[indexTrainer].makeBpZero();
         trainers[indexTrainer].makeHpHalf();
         if (indexTrainer==Constants.PLAYER_ONE){
-            trainers[Constants.PLAYER_TWO].subtractHp(damageForOpponent); //TODO
+            trainers[Constants.PLAYER_TWO].subtractHp(damageForOpponent);
         }else {
-            trainers[Constants.PLAYER_ONE].subtractHp(damageForOpponent); //TODO
+            trainers[Constants.PLAYER_ONE].subtractHp(damageForOpponent);
         }
 
     }
@@ -210,6 +212,13 @@ public class Battle {
         }while (userInput<Constants.MIN_VALID_CHOICE||userInput>Constants.MAX_VALID_CHOICE);
 
         return userInput;
+    }
+    private String printExsplation(Pokémon pokémon){ //TODO
+        String printExsplation ="[you get full hp and bp]";
+       if (pokémon.isFire()){
+           printExsplation= " [you get 2 attack and lose your all point attack and hp down in half]";
+       }
+       return printExsplation;
     }
 
     public Pokémon randomPokémon(){

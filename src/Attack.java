@@ -30,7 +30,14 @@ public class Attack {
           return
                   name +
                   " [AP: " + attackPointCost + "]" +
-                  " ,[Damage: " + minimumDamage +
-                  "-" + maximumDamage +"]";
+                  " ,"+printAttackInformation();
+     }
+     private String printAttackInformation(){
+          String attackInformatio="[Damage: " + minimumDamage +
+          "-" + maximumDamage +"]";
+           if (this.minimumDamage==this.maximumDamage){
+                attackInformatio =  "[Damage:" + minimumDamage + "]";
+           }
+          return attackInformatio;
      }
 }

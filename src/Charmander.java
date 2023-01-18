@@ -3,7 +3,8 @@ public class Charmander extends FirePokemon {
         super(name, level, type, canEvolve, hp, bp, maxHp, maxBp, attacks);
     }
 
-    public void evolve(){
+    public boolean evolve(){
+        boolean isEvolve = false;
         if (getLevel()==Constants.LEVEL_ONE){
             if (canEvolve(Constants.HP_NECESSARY_FOR_LVL_TWO,Constants.BP_NECESSARY_FOR_LVL_TWO)){
                 printName();
@@ -13,6 +14,7 @@ public class Charmander extends FirePokemon {
                 subtractBp(Constants.BP_NECESSARY_FOR_LVL_TWO);
                 Attack attack = Constants.FLAME_TAIL;
                 addAttack(attack);
+                isEvolve = true;
             }else {
                 System.out.println("Charmender cannot evolve right now. \n you need AT LEAST - 20 HP and 25 BP");
             }
@@ -25,11 +27,13 @@ public class Charmander extends FirePokemon {
                 subtractBp(Constants.BP_NECESSARY_FOR_LVL_THREE);
                 Attack attack = Constants.FIERY_TAIL;
                 addAttack(attack);
+                isEvolve = true;
             }else {
                 System.out.println("Charmeleon cannot evolve right now. \n you need AT LEAST - 30 HP and 40 BP");
             }
 
         }
+        return isEvolve;
     }
 
 }

@@ -10,14 +10,14 @@ public class ElectricPokemon extends Pokémon{
     public void evolve(int hp,int bp){}
 
 
-    public void evolve() {}
+    public boolean evolve() {return false;}
 
     public void allRound() {
         charge();
         checkHpPointForCharge();
     }
 
-    public void typeSpeciality() {}
+
     public int typeSpeciality(Attack attack) {
 
         int damageForOpponent = attack.damageForOpponent();

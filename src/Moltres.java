@@ -4,7 +4,7 @@ public class Moltres extends FirePokemon{
     }
 
 
-    public void evolve() {
-        System.out.println("Moltres cannot evolve.");
+    public boolean evolve() {
+        System.out.println("Moltres cannot evolve.");return false;
     }
 }

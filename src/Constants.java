@@ -2,6 +2,7 @@ public class Constants {
     public static final int ZERO_HP = 0;
     public static final int FIRE = 1;
     public static final int ELECTRIC = 2;
+    public static final String KICK_NAME = "Kick";
     public static final int PROBABILITY_OF_SELF_DAMAGE=4;
     public static final int PLAYER_ONE =0;
     public static final int PLAYER_TWO = 1;
@@ -40,7 +41,6 @@ public class Constants {
     public static final int BONUS_BP = 2;
     public static final int BONUS_BP_MIN = 0;
     public static final int BONUS_BP_MAX = 41;
-
     public static final int ATTACK_POWER = 1;
     public static final int ATTACK_POWER_BONUS = 3;
 

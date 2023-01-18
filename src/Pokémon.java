@@ -110,7 +110,6 @@ public abstract class Pokémon {
           this.bp -= bpToSub;
       }
     }
-    public abstract void typeSpeciality();
     public abstract int typeSpeciality(Attack attack);
     public abstract void allRound();
     public boolean isHaveEnoughHp(){ //TODO
@@ -137,7 +136,7 @@ public abstract class Pokémon {
         return level;
     }
 
-    public abstract void evolve();
+    public abstract boolean evolve();
     public void printName(){
         System.out.print(this.name);
     }
