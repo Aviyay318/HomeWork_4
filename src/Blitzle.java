@@ -1,7 +1,11 @@
 public class Blitzle extends ElectricPokemon{
+
+    //O(1)
     public Blitzle(String name, int level, int type, boolean canEvolve, int hp, int bp, int maxHp, int maxBp, Attack[] attacks) {
         super(name, level, type, canEvolve, hp, bp, maxHp, maxBp, attacks);
     }
+
+    //O(1)
         public boolean evolve(){
             boolean isEvolve = false;
                 if (canEvolve(Constants.HP_NECESSARY_FOR_LVL_TWO,Constants.BP_NECESSARY_FOR_LVL_TWO)){

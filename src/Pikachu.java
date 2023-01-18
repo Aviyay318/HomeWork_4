@@ -1,7 +1,9 @@
 public class Pikachu extends ElectricPokemon{
+    //O(1)
     public Pikachu(String name, int level, int type, boolean canEvolve, int hp, int bp, int maxHp, int maxBp, Attack[] attacks) {
         super(name, level, type, canEvolve, hp, bp, maxHp, maxBp, attacks);
     }
+    //O(1)
     public boolean evolve(){
         boolean isEvolve = false;
         if (getLevel()==Constants.LEVEL_ONE){

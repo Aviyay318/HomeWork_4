@@ -13,10 +13,11 @@ public class Attack {
           this.minimumDamage = minimumDamage;
           this.maximumDamage = maximumDamage;
      }
-
+     //O(1)
      public int getAttackPointCost() {
           return this.attackPointCost;
      }
+     //O(1)
      public int damageForOpponent(){
           int damageForOpponent;
           Random random = new Random();
@@ -34,6 +35,7 @@ public class Attack {
                   " [BP: " + attackPointCost + "]" +
                   " ,"+printAttackInformation();
      }
+     //O(1)
      private String printAttackInformation(){
           String attackInformatio="[Damage: " + minimumDamage +
           "-" + maximumDamage +"]";

@@ -14,7 +14,7 @@ public class Battle {
         for (int i = 0;i<trainers.length;i++){
             trainers[i] = randomPokémon();
         }
-        System.out.println("\n\nWelcome to Pokemon!" +
+        System.out.println("\n\nWel come to Pokemon!" +
                 "\nThe rules are simple:\n" +
                 "1. WIN!\n");      //7 years old humor  #Ram
         System.out.print("Trainer #1: ");
