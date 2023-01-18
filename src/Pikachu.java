@@ -8,7 +8,7 @@ public class Pikachu extends ElectricPokemon{
             if (canEvolve(Constants.HP_NECESSARY_FOR_LVL_TWO,Constants.BP_NECESSARY_FOR_LVL_TWO)){
                 printName();
                 System.out.println(" evolved to Pikachu ");
-                setEvolve("Pikachu",2,50,40);
+                setEvolve("Pikachu",true,2,50,40);
                 subtractHp(Constants.HP_NECESSARY_FOR_LVL_TWO);
                 subtractBp(Constants.BP_NECESSARY_FOR_LVL_TWO);
                 Attack attack = Constants.ELECTRO_BALL;
@@ -21,7 +21,7 @@ public class Pikachu extends ElectricPokemon{
             if (canEvolve(Constants.HP_NECESSARY_FOR_LVL_THREE,Constants.BP_NECESSARY_FOR_LVL_THREE)){
                 printName();
                 System.out.println(" evolved to Raichu ");
-                setEvolve("Raichu",3,160,80);
+                setEvolve("Raichu",false,3,160,80);
                 subtractHp(Constants.HP_NECESSARY_FOR_LVL_THREE);
                 subtractBp(Constants.BP_NECESSARY_FOR_LVL_THREE);
                 Attack attack = Constants.ELECTRIC_SURFER;

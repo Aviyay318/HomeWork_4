@@ -83,15 +83,17 @@ public class Battle {
               trainers[indexTrainer].allRound();
               if (indexTrainer==Constants.PLAYER_ONE){
                   indexTrainer = Constants.PLAYER_TWO;
+                      trainers[Constants.PLAYER_TWO].opponentAllRound();
               }else {
                   indexTrainer = Constants.PLAYER_ONE;
+                      trainers[Constants.PLAYER_ONE].opponentAllRound();
               }
           }
           if (counterTurnForDamagePower==2){
               counterTurnForDamagePower=0;
               if (trainers[indexTrainer].getAttackPower()==Constants.ATTACK_POWER_BONUS){
                   trainers[indexTrainer].setAttackPower(Constants.ATTACK_POWER);
-              }//TODO
+              }
           }
         }
     }

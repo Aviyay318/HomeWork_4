@@ -9,7 +9,7 @@ public class Charmander extends FirePokemon {
             if (canEvolve(Constants.HP_NECESSARY_FOR_LVL_TWO,Constants.BP_NECESSARY_FOR_LVL_TWO)){
                 printName();
                 System.out.println(" evolved to Charmeleon");
-                setEvolve("Charmeleon",2,90,60);
+                setEvolve("Charmeleon",true,2,90,60);
                 subtractHp(Constants.HP_NECESSARY_FOR_LVL_TWO);
                 subtractBp(Constants.BP_NECESSARY_FOR_LVL_TWO);
                 Attack attack = Constants.FLAME_TAIL;
@@ -22,7 +22,7 @@ public class Charmander extends FirePokemon {
             if (canEvolve(Constants.HP_NECESSARY_FOR_LVL_THREE,Constants.BP_NECESSARY_FOR_LVL_THREE)){
                 printName();
                 System.out.println(" evolved to Charizard");
-                setEvolve("Charizard",3,130,80);
+                setEvolve("Charizard",false,3,130,80);
                 subtractHp(Constants.HP_NECESSARY_FOR_LVL_THREE);
                 subtractBp(Constants.BP_NECESSARY_FOR_LVL_THREE);
                 Attack attack = Constants.FIERY_TAIL;

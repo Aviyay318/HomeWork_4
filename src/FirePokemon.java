@@ -1,13 +1,14 @@
 import java.util.Random;
 
-public class FirePokemon extends Pokémon{
+public abstract class FirePokemon extends Pokémon{
 
     public FirePokemon(String name, int level, int type, boolean canEvolve, int hp, int bp, int maxHp, int maxBp, Attack[] attacks) {
         super(name, level, type, canEvolve, hp, bp, maxHp, maxBp, attacks);
     }
 
     public boolean evolve(){return false;};
-    public void allRound() {}
+    public void selfAllRound() {}
+    public void opponentAllRound(){}
     public int typeSpeciality(Attack attack){
         if (attack!=Constants.KICK){
             selfDamage();

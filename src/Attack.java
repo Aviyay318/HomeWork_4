@@ -29,7 +29,7 @@ public class Attack {
      public String toString() {
           return
                   name +
-                  " [AP: " + attackPointCost + "]" +
+                  " [BP: " + attackPointCost + "]" +
                   " ,"+printAttackInformation();
      }
      private String printAttackInformation(){

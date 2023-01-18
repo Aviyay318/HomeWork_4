@@ -1,4 +1,4 @@
-public class ElectricPokemon extends Pokémon{
+public abstract class ElectricPokemon extends Pokémon{
 
     private int charge;
 
@@ -14,6 +14,9 @@ public class ElectricPokemon extends Pokémon{
 
     public void allRound() {
         charge();
+        checkHpPointForCharge();
+    }
+    public void opponentAllRound(){
         checkHpPointForCharge();
     }
 

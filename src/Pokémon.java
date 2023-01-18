@@ -111,16 +111,18 @@ public abstract class Pokémon {
       }
     }
     public abstract int typeSpeciality(Attack attack);
-    public abstract void allRound();
-    public boolean isHaveEnoughHp(){ //TODO
-        boolean isisHaveHp = false;
-        if (this.hp>=(this.maxHp*20)/100){
-           isisHaveHp=true;
+    public abstract void selfAllRound();
+    public abstract void opponentAllRound();
+    public boolean haveEnoughHp(){
+        boolean haveHp = false;
+        if (this.hp>=((this.maxHp*20)/100)){
+           haveHp=true;
         }
-        return isisHaveHp;
+        return haveHp;
     }
-    public void setEvolve(String name, int level, int maxHp, int maxBp){
+    public void setEvolve(String name,boolean canEvolve, int level, int maxHp, int maxBp){
         this.name = name;
+        this.canEvolve = canEvolve;
         this.level = level;
         this.maxHp = maxHp;
         this.maxBp = maxBp;
