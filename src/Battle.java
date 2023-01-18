@@ -54,7 +54,7 @@ public class Battle {
                            specialActionElectric = false;
                            switchTurn =true;
                        }else {
-                           System.out.println("cant spacil atack"); //TODO
+                           System.out.println("You already used it, try something else.");
                        }
                    }
                 }
@@ -215,8 +215,7 @@ public class Battle {
             System.out.println("\n" +
                     "4: Special Action "+ printExplanation(pokémon)+"\n");
             Scanner scanner = new Scanner(System.in);
-            userInput = scanner.nextInt();
-            isUserChoiceValid = false;
+            userInput = scanner.nextInt();isUserChoiceValid = false;
         }while (userInput<Constants.MIN_VALID_CHOICE||userInput>Constants.MAX_VALID_CHOICE);
 
         return userInput;
