@@ -247,10 +247,9 @@ public class Battle {
     //O(1)
     public Pokémon randomPokémon(){
         Random random = new Random();
-        String [] pokémonNames = new String[]{"Charmander","Salandit","Moltres","Pikachu","Blitzle","Electabuzz"};
-        int pokémonIndex = random.nextInt(pokémonNames.length);
+        int pokémonIndex = random.nextInt(Constants.POKEMON_NAMES.length);
         Pokémon randomPokémon = null;
-        switch (pokémonNames[pokémonIndex]){
+        switch (Constants.POKEMON_NAMES[pokémonIndex]){
             case Constants.CHARMANDER -> randomPokémon= new Charmander("Charmander",1,1,true,80,30,80,40,
                     new Attack [] {Constants.KICK,
                             Constants.SCRATCH});

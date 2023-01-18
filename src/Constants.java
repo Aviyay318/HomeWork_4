@@ -3,7 +3,7 @@ public class Constants {
     public static final int FIRE = 1;
     public static final int ELECTRIC = 2;
     public static final int RESET_POWER=2;
-
+    public static final String [] POKEMON_NAMES = new String[]{"Charmander","Salandit","Moltres","Pikachu","Blitzle","Electabuzz"};
     public static final int PROBABILITY_OF_SELF_DAMAGE=4;
     public static final int PLAYER_ONE =0;
     public static final int PLAYER_TWO = 1;
