@@ -79,9 +79,9 @@ public class Battle {
             }
 
           if (switchTurn){
-              if (trainers[indexTrainer].getAttackPower()==Constants.ATTACK_POWER_BONUS){
+              if (trainers[indexTrainer].isAttackPower(Constants.ATTACK_POWER_BONUS)){
                   counterTurnForDamagePower++;
-                  trainers[indexTrainer].setCounterOfTriplePower(counterTurnForDamagePower);
+                  trainers[indexTrainer].addToAttackPower(counterTurnForDamagePower);
               }
 
               int randomHp = random.nextInt(Constants.MIN_RANDOM_HP,Constants.MAX_RANDOM_HP);
@@ -101,7 +101,7 @@ public class Battle {
           if (counterTurnForDamagePower==Constants.RESET_POWER){
               counterTurnForDamagePower=Constants.INITIALIZER ;
               trainers[indexTrainer].setCounterOfTriplePower(Constants.INITIALIZER);
-              if (trainers[indexTrainer].getAttackPower()==Constants.ATTACK_POWER_BONUS){
+              if (trainers[indexTrainer].isAttackPower(Constants.ATTACK_POWER_BONUS)){
                   trainers[indexTrainer].setAttackPower(Constants.ATTACK_POWER);
               }
           }

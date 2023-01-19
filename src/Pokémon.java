@@ -27,8 +27,18 @@ public abstract class Pokémon {
     }
 
     //O(1)
-    public int getCounterOfTriplePower() {
-        return counterOfTriplePower;
+    public void addToAttackPower(int attackPowerPiontToAdd){
+        if (this.attackPower<Constants.ATTACK_POWER_BONUS){
+            this.attackPower+=attackPowerPiontToAdd;
+        }
+    }
+    //O(1)
+    public boolean isAttackPower(int attackPower){
+      boolean isAttackPower = false;
+      if (this.attackPower==attackPower){
+          isAttackPower =true;
+      }
+      return isAttackPower;
     }
     //O(1)
 
