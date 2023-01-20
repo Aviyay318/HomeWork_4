@@ -86,7 +86,8 @@ public class Battle {
 
               int randomHp = random.nextInt(Constants.MIN_RANDOM_HP,Constants.MAX_RANDOM_HP);
               int randomBp = random.nextInt(Constants.MIN_RANDOM_BP,Constants.MAX_RANDOM_BP);
-              System.out.println("You gained " + randomHp + " HP and " + randomBp +" BP\n");
+              trainers[indexTrainer].printName();
+              System.out.println(" gained " + randomHp + " HP and " + randomBp +" BP\n");
               trainers[indexTrainer].addHp(randomHp);
               trainers[indexTrainer].addBp(randomBp);
               trainers[indexTrainer].selfAllRound();
@@ -131,11 +132,15 @@ public class Battle {
             Attack userChoiceAttack = trainers[indexTrainers].getAttacks()[userAttackChoice-1];
             int damageForOpponent = trainers[indexTrainers].typeSpeciality(userChoiceAttack);
             damageForOpponent*=trainers[indexTrainers].getAttackPower();
+
             if (indexTrainers==Constants.PLAYER_ONE){
                 trainers[Constants.PLAYER_TWO].subtractHp(damageForOpponent);
+                trainers[Constants.PLAYER_TWO].printName();
             }else {
                 trainers[Constants.PLAYER_ONE].subtractHp(damageForOpponent);
+                trainers[Constants.PLAYER_TWO].printName();
             }
+            System.out.println(" got HIT and lost " + damageForOpponent + "HP");
        }else {
            System.out.println("You dont have enough BP, please choose something else.\n");
        }
